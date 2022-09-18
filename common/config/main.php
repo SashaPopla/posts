@@ -23,5 +23,13 @@ return [
         'cache' => [
             'class' => \yii\caching\FileCache::class,
         ],
+        'image' => [
+            'class' => 'yii\image\ImageDriver',
+            'driver' => 'Imagick',
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'cache' => 'cache',
+        ],
     ],
 ];

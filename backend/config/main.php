@@ -50,15 +50,9 @@ return [
             'class' => 'common\components\UrlManager',
             'rules' => [
                 '' => 'site/index',
-
                 'language/' => 'language/index',
                 'language/view/<id:\d+>' => 'language/view',
                 'language/update/<id:\d+>' => 'language/update',
-
-
-
-                /*'<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>'*/
             ],
         ],
         

@@ -23,12 +23,17 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
+                    /*[
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['canAdmin'],
+                    ],*/
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['index', 'role'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -100,5 +105,35 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionRole()
+    {
+        /*$role = Yii::$app->authManager->createRole('admin');
+        $role->description = ('Admin');
+        Yii::$app->authManager->add($role);
+
+        $contentManager = Yii::$app->authManager->createRole('content_manager');
+        $contentManager->description = ('Content Manager');
+        Yii::$app->authManager->add($contentManager);
+
+        $ban = Yii::$app->authManager->createRole('banned');
+        $ban->description = ('Ban');
+        Yii::$app->authManager->add($ban);
+
+        $permit = Yii::$app->authManager->createPermission('canAdmin');
+        $permit->description = ('Log in admin');
+        Yii::$app->authManager->add($permit);
+
+        $roleA = Yii::$app->authManager->getRole('admin');
+        $roleC = Yii::$app->authManager->getRole('content_manager');
+        $permit = Yii::$app->authManager->getPermission('canAdmin');
+        Yii::$app->authManager->addChild($roleA, $permit);
+        Yii::$app->authManager->addChild($roleC, $permit);*/
+
+        $userRole = Yii::$app->authManager->getRole('admin');
+        Yii::$app->authManager->assign($userRole, Yii::$app->user->id);
+
+        return 101001;
     }
 }
