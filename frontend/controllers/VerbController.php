@@ -12,7 +12,6 @@ class VerbController extends AppController
 {
     public function actionIndex()
     {
-        //$category = Category::find()->joinWith('categoryTranslates')->all();
         //$post = Post::find()->joinWith('postTranslations')->all();
 
         $this->setMeta('Verb');
@@ -24,10 +23,12 @@ class VerbController extends AppController
     {
         $id = Yii::$app->request->get('id');
 
-        $category = CategoryTranslate::findOne(['category_id' => $id]);
+        $categories = CategoryTranslate::find()->where(['category_id' => $id])->all();
+
+        $category = CategoryTranslate::find()->where(['category_id' => $id])->one();
 
         $this->setMeta('View: '.$category->name.'', '.$category->name.', '.$category->name.');
 
-        return $this->render('view', compact('category'));
+        return $this->render('view', compact('categories'));
     }
 }

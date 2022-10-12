@@ -1,5 +1,5 @@
 <?php
-/** @var object $category */
+/** @var object $categories */
 ?>
 
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image:url(images/img_1.jpg);" data-stellar-background-ratio="0.5">
@@ -10,7 +10,11 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeInUp">
                         <span class="date-post">Category</span>
-                        <h1 class="mb30t"><?= $category->name ?></h1>
+                        <?php foreach ($categories as $categoryLang): ?>
+                            <?php if($categoryLang->language == Yii::$app->language): ?>
+                                <h1 class="mb30t"> <?= $categoryLang->name ?> </h1>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
