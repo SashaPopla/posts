@@ -65,7 +65,7 @@ $category = Category::find()->joinWith('categoryTranslates')->all();
                     <div class="col-md-4">
                         <div class="post-entry">
                             <div class="post-img">
-                                <a href="#"><img src="images/img_1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                                <a href="#"><img src="images/img_1.jpg" class="img-responsive" alt=""></a>
                             </div>
                             <div class="post-copy">
                                 <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -76,7 +76,7 @@ $category = Category::find()->joinWith('categoryTranslates')->all();
                     <div class="col-md-4">
                         <div class="post-entry">
                             <div class="post-img">
-                                <a href="#"><img src="images/img_2.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                                <a href="#"><img src="images/img_2.jpg" class="img-responsive" alt=""></a>
                             </div>
                             <div class="post-copy">
                                 <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -87,7 +87,7 @@ $category = Category::find()->joinWith('categoryTranslates')->all();
                     <div class="col-md-4">
                         <div class="post-entry">
                             <div class="post-img">
-                                <a href="#"><img src="images/img_3.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                                <a href="#"><img src="images/img_3.jpg" class="img-responsive" alt=""></a>
                             </div>
                             <div class="post-copy">
                                 <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -96,20 +96,6 @@ $category = Category::find()->joinWith('categoryTranslates')->all();
                         </div>
                     </div>
                 </div>
-
-                <div class="row copyright">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            <ul class="gtco-social-icons">
-                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                                <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </footer>
     </div>

@@ -1,5 +1,9 @@
 <?php
 /** @var object $categories */
+/** @var object $category */
+/** @var object $posts */
+
+use yii\helpers\Url;
 ?>
 
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image:url(images/img_1.jpg);" data-stellar-background-ratio="0.5">
@@ -26,113 +30,33 @@
     <div class="container">
         <div class="row row-pb-md">
             <div class="col-md-12">
-                <ul id="gtco-post-list">
-                    <li class="full entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_1.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, tsingle.htmlen she continued her way.</p>
-                            </div>
-                        </a>
-                        <a href="#" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
+                <?php if( !empty($posts) ): ?>
+                    <ul id="gtco-post-list">
+                        <?php $i = 0; foreach ($posts as $post): ?>
+                            <?php $post_translate = $post->postTranslations; ?>
+                            <?php foreach ($post_translate as $pt): ?>
+                                <?php if($pt->language == Yii::$app->language && $post->publish == 1 && $category->category_id == $post->id_post_category): ?>
+                                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
+                                        <a href="<?= Url::to(['single', 'id'=>$pt->id_post]) ?>">
+                                            <div class="entry-img" style="background-image: url(images/img_4.jpg)"></div>
+                                            <div class="entry-desc">
+                                                <h3><?= $pt->name ?></h3>
+                                                <p><?= $pt->description ?></p>
+                                            </div>
+                                        </a>
+                                        <a href="<?= Url::to(['view', 'id' => $post->id_post_category]) ?>" class="post-meta"> <span class="date-posted"><?= Yii::$app->formatter->asRelativeTime($post->create_date)?></span></a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                    <li class="two-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_2.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_3.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-
-                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_4.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_5.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_6.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-
-
-                    <li class="one-half entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_7.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                    <li class="one-half entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_8.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-
-                    <li class="one-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_9.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                    <li class="two-third entry animate-box" data-animate-effect="fadeIn">
-                        <a href="single.html">
-                            <div class="entry-img" style="background-image: url(images/img_10.jpg"></div>
-                            <div class="entry-desc">
-                                <h3>How Web Hosting Can Impact Page Load Speed</h3>
-                                <p>She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains.</p>
-                            </div>
-                        </a>
-                        <a href="single.html" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                    </li>
-                </ul>
+                        <?php $i++; ?>
+                        <?php if($i % 3 === 0): ?>
+                            <div class="clearfix"></div>
+                        <?php endif; ?>
+                        <div class="clearfix"></div>
+                    </ul>
+                <?php endif; ?>
             </div>
         </div>
     </div>
