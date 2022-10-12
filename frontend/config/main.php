@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'defaultRoute' => 'verb/index',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -43,9 +44,11 @@ return [
             'showScriptName' => false,
             'class' => 'common\components\UrlManager',
             'rules' => [
-                '' => 'site/index',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>'
+                '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>',
+
+                '' => 'verb/index',
+                '/view' => 'verb/view',
             ],
         ],
         

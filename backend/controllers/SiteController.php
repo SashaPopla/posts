@@ -23,20 +23,20 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
-                    /*[
+                    [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['canAdmin'],
-                    ],*/
+                    ],
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
-                    [
+                    /*[
                         'actions' => ['index', 'role'],
                         'allow' => true,
                         'roles' => ['@'],
-                    ],
+                    ],*/
                 ],
             ],
             'verbs' => [
@@ -107,9 +107,9 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionRole()
+    /*public function actionRole()
     {
-        /*$role = Yii::$app->authManager->createRole('admin');
+        $role = Yii::$app->authManager->createRole('admin');
         $role->description = ('Admin');
         Yii::$app->authManager->add($role);
 
@@ -129,11 +129,11 @@ class SiteController extends Controller
         $roleC = Yii::$app->authManager->getRole('content_manager');
         $permit = Yii::$app->authManager->getPermission('canAdmin');
         Yii::$app->authManager->addChild($roleA, $permit);
-        Yii::$app->authManager->addChild($roleC, $permit);*/
+        Yii::$app->authManager->addChild($roleC, $permit);
 
         $userRole = Yii::$app->authManager->getRole('admin');
         Yii::$app->authManager->assign($userRole, Yii::$app->user->id);
 
         return 101001;
-    }
+    }*/
 }

@@ -12,9 +12,9 @@ return [
                 '*' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'db' => 'db',
-                    'sourceLanguage' => 'en-US',
-                    'sourceMessageTable' => 'message',
-                    'messageTable' => 'message_translation',
+                    'sourceLanguage' => 'en',
+                    'sourceMessageTable' => 'source_message',
+                    'messageTable' => 'message',
                     'cachingDuration' => 86400,
                     'enableCaching' => false,
                 ],

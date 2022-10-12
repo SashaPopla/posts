@@ -12,9 +12,9 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => [
         'log',
-        /*[
+        [
             'class' => 'common\components\LanguageSelector',
-        ],*/
+        ],
     ],
     'modules' => [],
     'components' => [
